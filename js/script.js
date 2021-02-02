@@ -47,10 +47,3 @@ document.addEventListener('keydown', function (event) {
         }, 500);
     }
 });
-
-// enlève le laser sur keyup
-// document.addEventListener('keyup', function (event) {
-//     if (event.code === 'Space') {
-//         spaceLaser.style.display = 'none';
-//     }
-// });
