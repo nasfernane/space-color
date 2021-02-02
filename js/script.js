@@ -2,6 +2,7 @@
 const colorInput = document.querySelector('#color-input');
 const spaceShip = document.querySelector('#spaceshipContainer');
 const spaceLaser = document.querySelector('#spaceLaser');
+let transitionning = false;
 
 // events
 colorInput.addEventListener('change', function () {
@@ -9,7 +10,7 @@ colorInput.addEventListener('change', function () {
 });
 
 // évènement keydown pour faire bouger le vaisseau
-document.addEventListener('keydown', function (event) {
+document.addEventListener('keydown', async function (event) {
     // récupère la position X du vaisseau en px
     const shipStringPosition = window.getComputedStyle(spaceShip).left;
     // enlève le px pour récupérer la valeur en nombre
@@ -18,11 +19,6 @@ document.addEventListener('keydown', function (event) {
     const laserStringPosition = window.getComputedStyle(spaceLaser).left;
     const laserPosition = parseInt(
         laserStringPosition.substring(laserStringPosition.length - 2, 0)
-    );
-
-    const laserBottomStringPosition = window.getComputedStyle(spaceLaser).bottom;
-    const laserBottomPosition = parseInt(
-        laserBottomStringPosition.substring(laserBottomStringPosition.length - 2, 0)
     );
 
     // même principe pour la largeur du body afin d'adapter à l'écran de l'utilisateur
@@ -37,13 +33,15 @@ document.addEventListener('keydown', function (event) {
         spaceLaser.style.left = `calc(${laserPosition}px + 10px`;
     }
 
-    if (event.code === 'Space') {
+    if (event.code === 'Space' && transitionning === false) {
+        transitionning = true;
         spaceLaser.style.display = 'block';
         const laserShot = new Audio('http://www.sa-matra.net/sounds/starwars/ISD-Laser3.wav');
         laserShot.play();
 
         window.setTimeout(function () {
             spaceLaser.style.display = 'none';
+            transitionning = false;
         }, 500);
     }
 });
