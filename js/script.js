@@ -39,9 +39,7 @@ document.addEventListener('keydown', function (event) {
 
     if (event.code === 'Space') {
         spaceLaser.style.display = 'block';
-        const laserShot = new Audio(
-            'http://www.soundescapestudios.com/SESAudio/SES%20Site%20Sounds/Laser%20Sci%20Fi/Flash-laser-06.wav'
-        );
+        const laserShot = new Audio('http://www.sa-matra.net/sounds/starwars/ISD-Laser3.wav');
         laserShot.play();
 
         window.setTimeout(function () {
