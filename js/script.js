@@ -28,8 +28,8 @@ document.addEventListener('keydown', function (event) {
         spaceShip.style.left = `calc(${shipPosition}px - 10px`;
         spaceLaser.style.left = `calc(${shipPosition}px - 10px`;
     } else if (event.key === 'ArrowRight' && shipPosition <= `${bodyWidth - 55}`) {
-        spaceShip.style.left = `calc(${shipPosition}px + 10px`;
-        spaceLaser.style.left = `calc(${shipPosition}px + 10px`;
+        spaceShip.style.left = `calc(${laserPosition}px + 10px`;
+        spaceLaser.style.left = `calc(${laserPosition}px + 10px`;
     } else if (event.code === 'Space') {
         console.log('coucou');
         spaceLaser.style.display = 'block';
@@ -37,7 +37,6 @@ document.addEventListener('keydown', function (event) {
 });
 
 // enlève le laser sur keyup
-
 document.addEventListener('keyup', function (event) {
     if (event.code === 'Space') {
         spaceLaser.style.display = 'none';
