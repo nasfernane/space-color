@@ -34,9 +34,20 @@ h1 {
 }
 
 #spaceLaser {
+    height: 100px;
     position: absolute;
     left: 50%;
-    bottom: calc(1rem + 130px);
-    transform: translateX(-27%);
+    bottom: calc(1rem + 100px);
+    transform: translateX(-57%);
     display: none;
+    animation: 0.5s ease-in-out laserFire;
+}
+
+@keyframes laserFire {
+    from {
+        bottom: calc(1rem + 100px);
+    }
+    to {
+        bottom: 105%;
+    }
 }

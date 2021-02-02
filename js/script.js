@@ -20,6 +20,11 @@ document.addEventListener('keydown', function (event) {
         laserStringPosition.substring(laserStringPosition.length - 2, 0)
     );
 
+    const laserBottomStringPosition = window.getComputedStyle(spaceLaser).bottom;
+    const laserBottomPosition = parseInt(
+        laserBottomStringPosition.substring(laserBottomStringPosition.length - 2, 0)
+    );
+
     // même principe pour la largeur du body afin d'adapter à l'écran de l'utilisateur
     const bodyStringWidth = window.getComputedStyle(document.querySelector('body')).width;
     const bodyWidth = parseInt(bodyStringWidth.substring(bodyStringWidth.length - 2, 0));
@@ -30,15 +35,22 @@ document.addEventListener('keydown', function (event) {
     } else if (event.key === 'ArrowRight' && shipPosition <= `${bodyWidth - 55}`) {
         spaceShip.style.left = `calc(${laserPosition}px + 10px`;
         spaceLaser.style.left = `calc(${laserPosition}px + 10px`;
-    } else if (event.code === 'Space') {
-        console.log('coucou');
+    }
+
+    if (event.code === 'Space') {
         spaceLaser.style.display = 'block';
+        const laserShot = new Audio('/sounds/laser.mp3');
+        laserShot.play();
+
+        window.setTimeout(function () {
+            spaceLaser.style.display = 'none';
+        }, 500);
     }
 });
 
 // enlève le laser sur keyup
-document.addEventListener('keyup', function (event) {
-    if (event.code === 'Space') {
-        spaceLaser.style.display = 'none';
-    }
-});
+// document.addEventListener('keyup', function (event) {
+//     if (event.code === 'Space') {
+//         spaceLaser.style.display = 'none';
+//     }
+// });
