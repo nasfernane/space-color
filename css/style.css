@@ -32,3 +32,11 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
 }
+
+#spaceLaser {
+    position: absolute;
+    left: 50%;
+    bottom: calc(1rem + 130px);
+    transform: translateX(-27%);
+    display: none;
+}
