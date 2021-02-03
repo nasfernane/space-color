@@ -1,0 +1,8 @@
+@keyframes laserFire {
+    from {
+        bottom: calc(1rem + 100px);
+    }
+    to {
+        bottom: 105%;
+    }
+}
